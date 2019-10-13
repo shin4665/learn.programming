@@ -2,21 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>データの順序を入れ替える〜配列の操作〜</title>
+<title>フォームの入力内容を調べる〜フォームのDOM操作〜</title>
 <link rel="stylesheet" href="../../common/main.css">
 <style>
-#sushi-dish {
-	overflow: flow-root;
+#form {
+	padding: 16px;
+	background: #f1f6ff;
 }
-.item {
-	float: left;
-	margin: 8px;
-	padding: 6px 0;
-	border: 1px solid #999;
-	/*border-radius: 50% 8px 8px 50%;*/
-	border-radius: 50%;
-	width: 100px;
-	text-align: center;
+input[type="text"] {
+	box-sizing: border-box;
+	padding: 4px;
+	width: 300px;
+	font-size: 14px;
 }
 </style>
 </head>
@@ -25,7 +22,7 @@
 <header>
 	<div class="container">
 		<div class="logo"></div>
-        <h1 class="page-title">データの順序を入れ替える〜配列の操作〜</h1>
+        <h1 class="page-title">フォームの入力内容を調べる〜フォームのDOM操作〜</h1>
 	</div>
 </header>
 
@@ -33,19 +30,28 @@
 	<div class="container">
 
 		<!-- メインコンテンツ -->
+		<form action="#" id="form">
+			<p>
+				<label for="search">検索</label><br>
+				<input type="text" name="search" id="search">
+			</p>
+			<p>
+				条件
+				<input type="radio" name="category" value="all" checked><label for="all">すべて</label>
+				<label for="mens">
+					<input type="radio" name="category" value="mens">Mens
+				</label>
+				<label for="womens">
+					<input type="radio" name="category" value="womens">Womens
+				</label>
+			</p>
 
-		<div id="sushi-dish">
-			<div id="item0" class="item"></div>
-			<div id="item1" class="item"></div>
-			<div id="item2" class="item"></div>
-			<div id="item3" class="item"></div>
-			<div id="item4" class="item"></div>
-			<div id="item5" class="item"></div>
-		</div>
+			<input type="submit" name="submit" value="検索">
+		</form>
+		<p id="result"></p>
 		<!-- メインコンテンツ -->
 
 	</div>
-
 </main>
 
 <footer>
@@ -53,30 +59,25 @@
 		<small>JavaScript Study Lab.</small>
 	</div>
 </footer>
-let stock = ['イカ', '大トロ', 'イクラ', 'あなご', 'アジ', 'ヒラメ'];
-const intervalId = setInterval(function() {
-	stock.forEach(function(data, index) {
-		const idName = 'item' + index;
-		document.getElementById(idName).textContent = data;
-	});
-
-	const first = stock.shift();
-	stock.push(first);
-}, 2000);
 
 <script>
-'use strict'
-let stock=['イカ', '大トロ', 'イクラ', 'あなご', 'アジ', 'ヒラメ'];
- const intervalId=setInterval(function(){
-	 stock.forEach(function(date,index){
-		 const idName='item'+index;
-		 document.getElementById(idName).textContent=date;
-	 });
+'use strict';
 
-	 const first=stock.shift();
-	 stock.push(first);
- },2000);
+{
+	document.getElementById('form').onsubmit=function(event){
+		event.preventDefault();
+		const searchItem=document.getElementById('form').search.value;
+		const category=document.getElementById('form').category.value;
 
+		let word='';
+		if(searchItem!==''){
+			word=`${category} - ${searchItem}在庫ありまっす。`;
+		}else{
+			word='アイテムを指定してください';
+		}
+		document.getElementById('result').textContent=word;
+	};
+}
 </script>
 </body>
 </html>
