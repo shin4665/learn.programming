@@ -1,0 +1,68 @@
+puts "Hello, World!"
+
+puts "The sum of 2 and 3 is 5."
+
+argv0 = ARGV[0]
+argv1 = ARGV[1]
+sum = argv0.to_i + argv1.to_i
+
+puts "The sum of #{argv0} and #{argv1} is #{sum}."
+> y = 3
+> z = 8
+> 
+> area=(x*y+x*z+z*y)*2
+> volume=x*y*z
+> print"•\–ÊÏh,area,"\n"
+print"taiseki=",volume,"\n"
+
+i=1
+while i <=10
+print i,"\n"
+i=i+1
+end
+
+names = ["¬—Ñ","—Ñ","‚–ì","X‰ª"]
+names.size
+
+names.each do |n|
+puts n
+end
+
+address={:name:"‚‹´",:furigana:"takahashi"}
+
+address.each do |key,value|
+puts "#{key}:#{value}"
+end
+
+/RUby/=~"Ruby"
+names.each do|name|
+if/—Ñ/=~name
+    puts name
+a,b=0,1 
+a,b=b,a 
+P[a,b]end
+end
+
+def hello
+    puts "Hello Ruby."
+end
+hello()
+
+ary=[1,2]
+a,b=ary
+p a
+p b
+ary1=[]
+ary2=[]
+p ary1.object_id
+p ary2.object_id
+a=10
+b=
+unless a>b
+puts "A‚ÍB‚æ‚è‘å‚«‚­‚È‚¢"
+end
+
+
+str1="foo"
+str2="f"+"o"+"o"
+p str1 ==str2
