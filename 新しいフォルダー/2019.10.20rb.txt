@@ -1,0 +1,46 @@
+def hello(name)
+    puts "Hello,#{name}."
+end
+hello("ruby")
+
+ def hello(name="ruby")
+    puts "Hello,#{name}." end
+
+def hello(name="ruby")
+    puts "Hello,#{name}."
+end
+
+def volume(x,y,z)
+    return x*y*z
+end
+
+p volume(2,3,4)
+
+def area(x,y,z)
+    xy=x*y
+    yz=y*z
+    zx=z*x
+    (xy+yz+zx)*2
+end
+
+def max(a,b)
+    if a>b
+        a
+        else
+        b
+    end
+end
+p max(2,6)
+
+def myloop
+    while true
+     yield
+    end
+end
+
+num=1
+myloop do
+  puts "num is#{num}"
+  break if num>10
+  num*=2
+end
