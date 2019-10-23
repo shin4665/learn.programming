@@ -1,0 +1,31 @@
+class Receipt
+    def initializing(name)
+        @name=name
+        @line=[]
+    end
+    
+    def lines=(lines)
+        @lines=lines
+    end
+    
+    def calc
+        total=0
+        @lines.each do |lines|
+            total+=lines[:price]*line[:num]
+        end
+        total
+    end
+    
+    def output
+        puts "ƒŒƒV[ƒg@#{@name}"
+        @lines.each do |line|
+            puts "#{line[:name]} #{line[:price]}‰~x #{line[:num]}"
+        end
+        puts "‡Œv‹àŠz:#{calc}‰~"
+    end
+end
+
+r=Receipt.new("storeA")
+r.lines = [{name:"—‘",price:200,num:1},
+         {name:"‘åª",price:100,num:2}]
+r.output
