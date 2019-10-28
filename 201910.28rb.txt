@@ -1,0 +1,26 @@
+cloud9user:~/environment $ irb
+2.6.3 :001 > class C1
+2.6.3 :002?>       def hello
+2.6.3 :003?>             "ello"
+2.6.3 :004?>        
+2.6.3 :005?>         end
+2.6.3 :006?>   end
+ => :hello 
+2.6.3 :007 > 
+2.6.3 :008 > class C2<C1
+2.6.3 :009?>        alias old_hello hello
+2.6.3 :010?>        def hello
+2.6.3 :011?>             "#{old_hello},again"
+2.6.3 :012?>          end 
+2.6.3 :013?>   end 
+ => :hello 
+2.6.3 :014 > 
+2.6.3 :015 > obj=C2.new
+ => #<C2:0x00000000012d4938> 
+2.6.3 :016 > p obj.old_hello
+"ello"
+ => "ello" 
+2.6.3 :017 > p obj.hello
+"ello,again"
+ => "ello,again" 
+2.6.3 :018 > 
